@@ -26,7 +26,7 @@ export default function Product() {
       </p>
       <br></br>
       <h3>Reviews</h3>
-      {data.reviews ? (
+      {data.reviews.length > 0 ? (
         data.reviews.map((review) => (
           <article key={review._id}>
             <p>
