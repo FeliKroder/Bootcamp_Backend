@@ -20,7 +20,7 @@ export default function Product() {
     const formData = new FormData(event.target);
     const productData = Object.fromEntries(formData);
 
-    const response = await fetch("/api/products/", {
+    const response = await fetch(`/api/products/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -30,6 +30,16 @@ export default function Product() {
     if (response.ok) {
       mutate();
     }
+  }
+
+  async function handelDeleteProduct() {
+    await fetch(`/api/products/${id}`, {
+      method: "DELETE",
+    });
+    router.push("/");
+    // if (!response) {
+    //   response.status(404).json({ status: "Error" });
+    // }
   }
 
   if (isLoading) {
@@ -58,6 +68,14 @@ export default function Product() {
         Edit
       </button>
       {isEditMode && <ProductForm onSubmit={handleEditProduct} />}
+      <button
+        type="button"
+        onClick={() => {
+          handelDeleteProduct(id);
+        }}
+      >
+        Delete
+      </button>
     </ProductCard>
   );
 }

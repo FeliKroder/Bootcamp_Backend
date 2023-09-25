@@ -1,7 +1,7 @@
 import { StyledForm, StyledHeading, StyledLabel } from "./ProductForm.styled";
 import { StyledButton } from "../Button/Button.styled";
 
-export default function ProductForm(onSubmit) {
+export default function ProductForm({ onSubmit }) {
   return (
     <StyledForm onSubmit={onSubmit}>
       <StyledHeading>Dynamic Headline</StyledHeading>
