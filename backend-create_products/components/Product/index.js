@@ -27,6 +27,7 @@ export default function Product() {
       </p>
       {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
       <StyledLink href="/">Back to all</StyledLink>
+      <StyledLink href="/">Delete</StyledLink>
     </ProductCard>
   );
 }
